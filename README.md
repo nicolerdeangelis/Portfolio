@@ -12,6 +12,17 @@ Personal portfolio for Nicole DeAngelis. Plain HTML, CSS and JS with no build st
 
 To update later: edit files, then in GitHub Desktop commit and click Push origin.
 
+## Version control workflow
+The repo is `nicolerdeangelis/Portfolio` and it's connected over SSH (`git@github.com:nicolerdeangelis/Portfolio.git`).
+Every push to `main` redeploys thatnicole.com within a minute or two.
+
+- **Before editing:** `git pull` so you start from what's live.
+- **After a change:** `git add -A`, then `git commit -m "Describe the change"`, then `git push`.
+- **See history:** `git log --oneline`, or the repo's Commits page on GitHub.
+- **Undo a published change:** `git revert <commit-id>`, then `git push`. This adds a new commit that reverses the old one, so history stays intact.
+- **Bigger redesigns:** work on a branch (`git switch -c new-idea`) and merge into `main` only when it's ready. Pages only publishes `main`.
+- Keep `CNAME` in the repo. Deleting it disconnects the custom domain.
+
 ## Custom domain (thatnicole.com)
 1. In Settings → Pages, enter `thatnicole.com` as the custom domain. GitHub adds a `CNAME` file.
 2. At your DNS provider, add A records for `@` pointing to 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153, plus a CNAME record for `www` pointing to `<your-username>.github.io`.
