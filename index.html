@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nicole DeAngelis</title>
+<meta name="description" content="Nicole DeAngelis takes products from zero to one and grows them: go-to-market, product marketing and growth at YC-backed startups, plus AI products she builds herself.">
+<meta property="og:title" content="Nicole DeAngelis">
+<meta property="og:description" content="Founding marketer, product marketer and AI builder.">
+<meta property="og:image" content="assets/video/triplebyte-poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one 1160px column. Hero split text/proof, case studies alternate copy and a laptop playing the real screen recording */
+:root{
+  --bg:#FCEFEA; --surface:#FFF8F5; --ink:#1A1F4B; --muted:#5D6185; --line:#EBD8D1;
+  --cobalt:#3D5AFE; --on-cobalt:#FFFFFF; --peach:#FFB899; --on-peach:#1A1F4B;
+  --tint-cobalt:#DCE1FF; --tint-peach:#FFD3BF;
+  --bezel:#1A1F4B; --deck:#C9CBE0; --logo-filter:brightness(0) saturate(100%) invert(12%) sepia(30%) saturate(2400%) hue-rotate(220deg);
+  --display:"Bricolage Grotesque",ui-rounded,"Avenir Next",system-ui,sans-serif;
+  --body:"Figtree","Avenir Next",system-ui,-apple-system,sans-serif;
+  --mono:"DM Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --r-lg:28px; --r-md:18px; --r-pill:999px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12142E; --surface:#1B1E40; --ink:#F6EAE5; --muted:#A9ACCB; --line:#2A2E57;
+  --cobalt:#7C8CFF; --on-cobalt:#0E1030; --tint-cobalt:#262B5E; --tint-peach:#4A2F2A;
+  --bezel:#0A0B1F; --deck:#3A3E6B; --logo-filter:brightness(0) invert(92%); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12142E; --surface:#1B1E40; --ink:#F6EAE5; --muted:#A9ACCB; --line:#2A2E57;
+  --cobalt:#7C8CFF; --on-cobalt:#0E1030; --tint-cobalt:#262B5E; --tint-peach:#4A2F2A;
+  --bezel:#0A0B1F; --deck:#3A3E6B; --logo-filter:brightness(0) invert(92%); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.02;text-wrap:balance;margin:0}
+h2{font-size:clamp(34px,5vw,56px)}
+h3{font-size:26px;line-height:1.1}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted);max-width:60ch}
+section{padding-block:clamp(64px,9vw,112px)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;align-items:end;margin-bottom:clamp(36px,5vw,56px)}
+.sec-head > div{display:grid;gap:14px}
+@media (max-width:820px){.sec-head{grid-template-columns:minmax(0,1fr)}}
+.pill{display:inline-block;background:var(--cobalt);color:var(--on-cobalt);padding:0 .16em .04em;border-radius:.22em;transform:rotate(-3deg)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--display);font-weight:800;font-size:24px;text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--cobalt)}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-weight:500;font-size:15px}
+.nav ul a{text-decoration:none}
+.nav ul a:hover{color:var(--cobalt)}
+@media (max-width:860px){.nav ul{display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--body);padding:14px 22px;border-radius:var(--r-pill);text-decoration:none;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.small{padding:10px 16px;font-size:14px}
+
+/* hero */
+.hero{padding-block:clamp(36px,6vw,80px) clamp(56px,7vw,88px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(36px,5vw,72px);align-items:center}
+@media (max-width:920px){.hero .wrap{grid-template-columns:minmax(0,1fr)}}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.tag{font-size:13px;font-weight:500;padding:6px 12px;border-radius:var(--r-pill);background:var(--tint-cobalt);color:var(--ink)}
+.tag:nth-child(even){background:var(--tint-peach)}
+.hero h1{font-size:clamp(46px,7.2vw,92px)}
+.hero .lede{font-size:19px;margin-top:28px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.stack{position:relative;display:grid;gap:14px;padding-top:36px}
+.me{position:absolute;top:-20px;left:-14px;width:96px;height:96px;border-radius:50%;object-fit:cover;border:5px solid var(--bg);z-index:3;transform:rotate(-6deg)}
+.spark{position:absolute;top:-10px;right:-6px;width:64px;height:64px;border-radius:50%;background:var(--peach);color:var(--on-peach);display:grid;place-items:center;font-size:28px;animation:bob 3.4s ease-in-out infinite;z-index:3}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-8px) rotate(8deg)}}
+.mcard{border-radius:var(--r-lg);padding:22px 24px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.mcard .v{font-family:var(--display);font-weight:800;font-size:clamp(42px,5vw,58px);line-height:.9;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mcard .l{font-size:14px;text-align:right;max-width:20ch;line-height:1.35}
+.mcard .l b{display:block;font-family:var(--mono);font-weight:400;font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.8;margin-top:4px}
+.m1{background:var(--cobalt);color:var(--on-cobalt);padding-left:118px}
+.m2{background:var(--peach);color:var(--on-peach);margin-left:clamp(0px,4vw,44px)}
+.m3{background:var(--surface);border:1.5px solid var(--line)}
+@media (max-width:520px){.m1{padding-left:24px;padding-top:70px}}
+
+/* logos */
+.logos{border-block:1px solid var(--line);padding-block:26px;overflow:hidden}
+.logos p{text-align:center;margin-bottom:18px}
+.track{display:flex;gap:64px;width:max-content;animation:slide 45s linear infinite;align-items:center}
+.track img{height:28px;width:auto;max-width:none;filter:var(--logo-filter);opacity:.8}
+.track img.tall{height:40px}
+@keyframes slide{to{transform:translateX(-50%)}}
+.logos:hover .track{animation-play-state:paused}
+.also{text-align:center;color:var(--muted);font-size:14px;margin-top:18px;padding-inline:16px}
+
+/* capabilities */
+.caps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:980px){.caps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.caps{grid-template-columns:minmax(0,1fr)}}
+.cap{background:var(--surface);border-radius:var(--r-md);padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .2s}
+.cap:hover{transform:translateY(-4px) rotate(-.6deg)}
+.cap .ico{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:var(--tint-cobalt)}
+.cap:nth-child(even) .ico{background:var(--tint-peach)}
+.cap h3{font-size:22px}
+.cap p{font-size:15px;color:var(--muted)}
+.cap small{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:auto;padding-top:10px;border-top:1px dashed var(--line)}
+
+/* device */
+.device{position:relative;width:100%;max-width:100%}
+.screen{background:var(--bezel);border-radius:18px 18px 6px 6px;padding:2.4% 2.4% 3%;position:relative}
+.screen::before{content:"";position:absolute;top:1%;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#3A3E6B}
+.screen video,.screen img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:4px;background:var(--surface)}
+.deck{height:clamp(10px,1.4vw,16px);margin-inline:-5%;background:var(--deck);border-radius:2px 2px 16px 16px;position:relative}
+.deck::after{content:"";position:absolute;left:50%;top:0;width:16%;height:40%;margin-left:-8%;border-radius:0 0 8px 8px;background:var(--bezel);opacity:.35}
+.sticker{position:absolute;z-index:2;font-weight:600;font-size:14px;border-radius:var(--r-pill);padding:10px 16px 10px 10px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(26,31,75,.18)}
+.sticker i{font-style:normal;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:14px}
+.sticker.peach{background:var(--peach);color:var(--on-peach)}.sticker.peach i{background:var(--on-peach);color:var(--peach)}
+.sticker.cobalt{background:var(--cobalt);color:var(--on-cobalt)}.sticker.cobalt i{background:var(--on-cobalt);color:var(--cobalt)}
+.s-tr{top:-18px;right:-10px;transform:rotate(4deg)}
+.s-bl{bottom:6px;left:-12px;transform:rotate(-4deg)}
+@keyframes pop{0%{transform:scale(.3) rotate(-14deg);opacity:0}70%{transform:scale(1.08) rotate(5deg);opacity:1}100%{transform:scale(1) rotate(var(--rot,4deg))}}
+.s-tr{--rot:4deg}.s-bl{--rot:-4deg}
+.inview .sticker{animation:pop .7s cubic-bezier(.3,1.4,.5,1) .35s both}
+.gifs{position:absolute;right:-14px;bottom:-26px;display:flex;gap:10px;z-index:2}
+.gifs img{width:clamp(78px,11vw,120px);aspect-ratio:1;object-fit:cover;border-radius:16px;border:4px solid var(--surface);box-shadow:0 10px 30px rgba(26,31,75,.2)}
+.gifs img:first-child{transform:rotate(-7deg)}.gifs img:last-child{transform:rotate(6deg) translateY(-14px)}
+
+/* case studies */
+.case{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:center;padding-block:56px;border-top:1px solid var(--line)}
+.case:nth-of-type(even) .device{order:2}
+@media (max-width:900px){.case{grid-template-columns:minmax(0,1fr)}.case:nth-of-type(even) .device{order:0}}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:14px}
+.meta span{font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;color:var(--muted)}
+.meta .who{color:var(--cobalt);font-weight:500}
+.case h3{font-size:clamp(28px,3.3vw,38px);margin-bottom:14px}
+.desc{color:var(--muted);margin-bottom:18px;max-width:58ch}
+.did{margin:0 0 22px;padding:0;list-style:none;display:grid;gap:8px;font-size:15.5px}
+.did li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px}
+.did li::before{content:"✦";color:var(--cobalt);font-size:13px;line-height:1.9}
+.results{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:16px}
+.results div{border-top:2px solid var(--ink);padding-top:10px}
+.results b{display:block;font-family:var(--display);font-weight:800;font-size:30px;line-height:1;font-variant-numeric:tabular-nums}
+.results span{font-size:13.5px;color:var(--muted);line-height:1.35;display:block;margin-top:6px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+/* ventures + lab */
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.grid3{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:700px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.tile{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-lg);padding:20px 20px 24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.tile .device{margin-bottom:10px}
+.tile .yr{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.tile h3{font-size:26px}
+.tile p{font-size:15px;color:var(--muted)}
+.tile .win{margin-top:auto;font-weight:600;font-size:15px;padding-top:14px;border-top:1px dashed var(--line);color:var(--ink)}
+.tile a.go{font-weight:600;font-size:15px;color:var(--cobalt);text-decoration:none;margin-top:auto}
+.tile a.go:hover{text-decoration:underline}
+.lab{background:var(--tint-cobalt)}
+.lab .tile{background:var(--surface);border-color:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:13px;padding:5px 12px;border-radius:var(--r-pill);border:1px solid var(--line);background:var(--surface)}
+
+/* experience */
+.xp{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:clamp(32px,5vw,64px)}
+@media (max-width:900px){.xp{grid-template-columns:minmax(0,1fr)}}
+.roles{list-style:none;margin:0;padding:0}
+.roles li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding-block:18px;border-top:1px solid var(--line)}
+@media (max-width:560px){.roles li{grid-template-columns:minmax(0,1fr);gap:4px}}
+.roles .when{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+.roles b{font-weight:600}
+.roles .co{color:var(--cobalt);font-weight:600}
+.roles p{font-size:15px;color:var(--muted);margin-top:2px}
+.side{display:grid;gap:28px;align-content:start}
+.side h3{font-size:20px;margin-bottom:12px}
+.awards{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.awards li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;font-size:15px}
+.awards li span{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:2px}
+.side p{font-size:15px;color:var(--muted)}
+
+/* praise */
+.praise{background:var(--ink);color:var(--bg)}
+.praise .eyebrow,.praise .lede{color:var(--peach)}
+.feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-bottom:28px}
+@media (max-width:820px){.feat{grid-template-columns:minmax(0,1fr)}}
+.fq{margin:0;border-radius:var(--r-lg);padding:30px;display:flex;flex-direction:column;gap:22px;background:var(--bg);color:var(--ink)}
+.fq:nth-child(2),.fq:nth-child(3){background:var(--cobalt);color:var(--on-cobalt)}
+.fq blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(21px,2.3vw,26px);line-height:1.25;text-wrap:pretty}
+.who-row{display:flex;align-items:center;gap:12px;margin-top:auto;font-size:14px;line-height:1.35}
+.who-row img{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none}
+.who-row b{display:block;font-weight:600;font-size:15px}
+.wall{columns:3 300px;column-gap:20px}
+.rq{break-inside:avoid;margin:0 0 20px;padding:22px;border-radius:var(--r-md);background:rgba(127,140,255,.12);border:1px solid rgba(255,184,153,.18)}
+.rq p{font-size:15px;line-height:1.55;margin-bottom:14px}
+.rq details{margin-bottom:14px;font-size:15px;line-height:1.55}
+.rq summary{cursor:pointer;font-weight:600;color:var(--peach);font-size:14px;list-style:none}
+.rq summary::-webkit-details-marker{display:none}
+.rq details[open] summary{margin-bottom:8px}
+.rq .rel{font-family:var(--mono);font-size:11.5px;opacity:.7;display:block;margin-top:3px}
+.rq .who-row img{width:40px;height:40px}
+.li-note{margin-top:28px;font-size:14px;opacity:.85}
+.li-note a{color:var(--peach)}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,6vw,80px);align-items:start}
+@media (max-width:880px){.about .wrap{grid-template-columns:minmax(0,1fr)}}
+.photo{position:relative}
+.photo img{border-radius:var(--r-lg);aspect-ratio:4/5;object-fit:cover;width:100%}
+.photo .note{position:absolute;left:16px;right:16px;bottom:16px;background:var(--surface);border-radius:var(--r-md);padding:12px 16px;font-size:14px}
+.about-body{display:grid;gap:18px;font-size:18px}
+.about-body p{max-width:62ch}
+.about-body h3{font-size:18px;margin-top:10px}
+
+/* contact */
+.cbox{background:var(--cobalt);color:var(--on-cobalt);border-radius:clamp(28px,4vw,44px);padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:end}
+@media (max-width:880px){.cbox{grid-template-columns:minmax(0,1fr)}}
+.cbox h2{font-size:clamp(40px,6vw,72px)}
+.cbox .pill{background:var(--peach);color:var(--on-peach)}
+.cbox p{margin-top:18px;max-width:46ch}
+.emailrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:rgba(255,255,255,.16);border-radius:var(--r-md);padding:10px 10px 10px 18px}
+.emailrow code{font:500 16px var(--mono);user-select:all;flex:1;min-width:0;overflow-wrap:anywhere}
+.cbox .btn{border-color:var(--on-cobalt);color:var(--on-cobalt)}
+.cbox .btn.solid{background:var(--on-cobalt);color:var(--cobalt)}
+.clinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.reply{font-family:var(--mono);font-size:13px;margin-top:14px}
+footer{padding-block:40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">nicole<span>.</span></a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#lab">AI lab</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#praise">Praise</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="btn solid small" href="#contact">Say hi</a>
+  </div>
+</nav>
+
+<main id="top">
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="tags">
+        <span class="tag">Founding marketer</span>
+        <span class="tag">Product marketing</span>
+        <span class="tag">Growth</span>
+        <span class="tag">AI builder</span>
+      </div>
+      <h1>Marketing that makes people <span class="pill">feel</span> something.</h1>
+      <p class="lede">I'm Nicole DeAngelis. I take products from zero to one, then grow them. I've led go-to-market at YC-backed startups, ran a Webby-honored relaunch for a $30B manufacturer, founded four companies, and I build AI products myself.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#work">See the work →</a>
+        <a class="btn" href="Nicole-DeAngelis-Resume.pdf" download="Nicole-DeAngelis-Resume.pdf" type="application/pdf">Download résumé</a>
+      </div>
+    </div>
+    <div class="stack" aria-label="Headline results">
+      <img class="me" src="assets/people/nicole-deangelis.jpg" alt="Nicole DeAngelis" width="96" height="96">
+      <div class="spark" aria-hidden="true">✦</div>
+      <div class="mcard m1"><span class="v" data-count="1" data-prefix="$" data-suffix="B">$1B</span><span class="l">in new pipeline after a global web relaunch<b>Flex</b></span></div>
+      <div class="mcard m2"><span class="v" data-count="2" data-prefix="$" data-suffix="M+">$2M+</span><span class="l">enterprise ARR closed as first marketer<b>amazee.io</b></span></div>
+      <div class="mcard m3"><span class="v">#1</span><span class="l">Product of the Day on Product Hunt<b>Triplebyte Magnet</b></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="logos" aria-label="Companies and brands Nicole has worked with">
+  <p class="eyebrow">Brands and teams I've marketed for</p>
+  <div class="track" aria-hidden="true">
+    <img src="assets/logos/triplebyte.png" alt=""><img src="assets/logos/flex.svg" alt=""><img src="assets/logos/povio.png" alt=""><img src="assets/logos/amazee.svg" alt=""><img src="assets/logos/dell.svg" alt=""><img src="assets/logos/bud-light.svg" alt=""><img src="assets/logos/redken.svg" alt=""><img class="tall" src="assets/logos/johns-hopkins.png" alt=""><img class="tall" src="assets/logos/union-pacific.png" alt=""><img src="assets/logos/nfp.svg" alt=""><img class="tall" src="assets/logos/joyloop.png" alt="">
+    <img src="assets/logos/triplebyte.png" alt=""><img src="assets/logos/flex.svg" alt=""><img src="assets/logos/povio.png" alt=""><img src="assets/logos/amazee.svg" alt=""><img src="assets/logos/dell.svg" alt=""><img src="assets/logos/bud-light.svg" alt=""><img src="assets/logos/redken.svg" alt=""><img class="tall" src="assets/logos/johns-hopkins.png" alt=""><img class="tall" src="assets/logos/union-pacific.png" alt=""><img src="assets/logos/nfp.svg" alt=""><img class="tall" src="assets/logos/joyloop.png" alt="">
+  </div>
+  <p class="also">Also Smartsheet, Matterport, Boehringer Ingelheim, the Australian Government, Continental Airlines, L'Oréal, Alcon, Bausch + Lomb, Texas Oncology and NRDC.</p>
+</div>
+
+<section id="what">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">What I do</p>
+        <h2>One senior marketer, the whole go-to-market.</h2>
+      </div>
+      <p class="lede">Most teams hire for positioning, launches, web and demand gen separately. I do all four and connect them, so the story a buyer hears matches the product they get. I've done it as the first marketing hire, as a director with a $500K budget and a team of agencies, and as a founder with no budget at all.</p>
+    </div>
+    <div class="caps">
+      <article class="cap">
+        <div class="ico" aria-hidden="true">◎</div>
+        <h3>Position</h3>
+        <p>Find the sharpest true thing about a product and say it plainly. Positioning, messaging, narrative and competitive framing.</p>
+        <small>Povio · Triplebyte · amazee.io</small>
+      </article>
+      <article class="cap">
+        <div class="ico" aria-hidden="true">↗</div>
+        <h3>Launch</h3>
+        <p>Take new products to market with the pricing, packaging, sales enablement and launch moment to back them up.</p>
+        <small>#1 on Product Hunt</small>
+      </article>
+      <article class="cap">
+        <div class="ico" aria-hidden="true">▲</div>
+        <h3>Grow</h3>
+        <p>Turn websites into pipeline with conversion-focused web, case study libraries, lifecycle email and demand gen.</p>
+        <small>10× inbound · 2× win rate</small>
+      </article>
+      <article class="cap">
+        <div class="ico" aria-hidden="true">✦</div>
+        <h3>Build</h3>
+        <p>Ship working products, not just decks. I build AI apps with Claude Code, Lovable and Replit, and market them myself.</p>
+        <small>5 AI products shipped</small>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2>Five launches, measured in outcomes.</h2>
+      </div>
+      <p class="lede">Each screen is a recording of the live work. The numbers are what it moved.</p>
+    </div>
+
+    <article class="case">
+      <div class="device">
+        <div class="screen"><video muted loop playsinline preload="none" poster="assets/video/triplebyte-poster.jpg" data-src="assets/video/triplebyte.mp4" aria-label="Screen recording of the Triplebyte website"></video></div>
+        <div class="deck"></div>
+        <span class="sticker peach s-tr"><i>#1</i>Product of the Day</span>
+      </div>
+      <div>
+        <div class="meta"><span class="who">Triplebyte</span><span>YC · Series B · acquired by Karat</span><span>2022–2023</span></div>
+        <h3>Launching an AI recruiting product and a new growth model at once</h3>
+        <p class="desc">As Director of Marketing (promoted from Sr. Product Marketing Manager), I led the move from a marketplace to subscriptions and product-led growth, while launching Triplebyte Magnet, an AI tool for sourcing engineers.</p>
+        <ul class="did">
+          <li>Rebuilt positioning and messaging for the subscription model</li>
+          <li>Launched Magnet to #1 Product of the Day on Product Hunt</li>
+          <li>Built the case study library and sales enablement that doubled win rate</li>
+          <li>Redesigned, replatformed and rewrote the 30+ page website</li>
+          <li>Ran a $500K budget across a dev agency, design firm and freelancer</li>
+        </ul>
+        <div class="results">
+          <div><b>2×</b><span>sales win rate</span></div>
+          <div><b>2×</b><span>website conversion</span></div>
+          <div><b>10×</b><span>faster time to value</span></div>
+        </div>
+        <div class="links"><a class="btn small" href="https://www.youtube.com/watch?v=DsYcUUKQ4Vk" target="_blank" rel="noopener">Watch the launch video ↗</a></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="device">
+        <div class="screen"><video muted loop playsinline preload="none" poster="assets/video/flex-poster.jpg" data-src="assets/video/flex.mp4" aria-label="Screen recording of the Flex website"></video></div>
+        <div class="deck"></div>
+        <span class="sticker cobalt s-bl"><i>W</i>Webby Honoree 2017</span>
+      </div>
+      <div>
+        <div class="meta"><span class="who">Flex</span><span>Formerly Flextronics · $30B · 200K employees</span><span>2016–2018</span></div>
+        <h3>Reintroducing a Fortune 500 manufacturer to the world</h3>
+        <p class="desc">As Senior Digital Marketing Manager, I led digital strategy and the Webby-honored relaunch of flex.com for a company that builds products for Apple, Nike and Google. The work spanned 12 industry verticals and dozens of stakeholders.</p>
+        <ul class="did">
+          <li>Directed 3 agencies across development, content, brand and video</li>
+          <li>Aligned sales, marketing and legal across 12 verticals</li>
+          <li>Rebuilt lead routing and the content production system</li>
+          <li>Owned a $1M website budget and led 4 people</li>
+        </ul>
+        <div class="results">
+          <div><b>$1B</b><span>new pipeline contributed</span></div>
+          <div><b>3×</b><span>marketing-qualified leads</span></div>
+          <div><b>7×</b><span>faster lead handoff</span></div>
+          <div><b>5×</b><span>faster content production</span></div>
+        </div>
+        <div class="links"><a class="btn small" href="https://flex.com/" target="_blank" rel="noopener">Visit flex.com ↗</a></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="device">
+        <div class="screen"><video muted loop playsinline preload="none" poster="assets/video/amazee-poster.jpg" data-src="assets/video/amazee.mp4" aria-label="Screen recording of the amazee.io website"></video></div>
+        <div class="deck"></div>
+        <span class="sticker peach s-tr"><i>$2M</i>enterprise ARR closed</span>
+      </div>
+      <div>
+        <div class="meta"><span class="who">amazee.io</span><span>Open-source PaaS · acquired by Mirantis</span><span>2018–2020</span></div>
+        <h3>Turning a bootstrapped startup into a trusted enterprise vendor</h3>
+        <p class="desc">As the first marketing hire, I ran full-funnel marketing and business development. Customer stories with Smartsheet, Matterport and the Australian Government gave enterprise buyers proof they could trust a small team.</p>
+        <ul class="did">
+          <li>Built positioning, messaging and the full brand platform</li>
+          <li>Launched a new website and a library of enterprise case studies</li>
+          <li>Set up HubSpot automation, demand gen and a partner motion</li>
+          <li>Hired and managed a direct report and a contractor, and directed a 4-person creative team</li>
+        </ul>
+        <div class="results">
+          <div><b>$2M+</b><span>enterprise ARR closed</span></div>
+          <div><b>10×</b><span>qualified inbound leads</span></div>
+          <div><b>3×</b><span>average deal size</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="device">
+        <div class="screen"><video muted loop playsinline preload="none" poster="assets/video/povio-poster.jpg" data-src="assets/video/povio.mp4" aria-label="Screen recording of the Povio website"></video></div>
+        <div class="deck"></div>
+        <span class="sticker cobalt s-bl"><i>12</i>new case studies</span>
+      </div>
+      <div>
+        <div class="meta"><span class="who">Povio</span><span>YC · 600-person software studio</span><span>2023–2024</span></div>
+        <h3>Making a great dev studio sound as good as its work</h3>
+        <p class="desc">Povio built excellent software but sounded like every other agency. As GTM consultant, I worked with the founders to clarify what made them different, then rebuilt the site around it.</p>
+        <ul class="did">
+          <li>Built positioning and messaging from scratch with the CEO and CTO</li>
+          <li>Overhauled UX and copy across 20+ website pages</li>
+          <li>Produced 12 client case studies that proved the new story</li>
+        </ul>
+        <div class="results">
+          <div><b>0→1</b><span>positioning and messaging</span></div>
+          <div><b>20+</b><span>pages redesigned</span></div>
+          <div><b>12</b><span>client case studies</span></div>
+        </div>
+        <div class="links"><a class="btn small" href="https://povio.com/" target="_blank" rel="noopener">Visit povio.com ↗</a></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="device">
+        <div class="screen"><video muted loop playsinline preload="none" poster="assets/video/joyloop-poster.jpg" data-src="assets/video/joyloop.mp4" aria-label="Screen recording of the JoyLoop app"></video></div>
+        <div class="deck"></div>
+        <div class="gifs" aria-hidden="true"><img src="assets/img/joyloop-gif-1.gif" alt="" loading="lazy"><img src="assets/img/joyloop-gif-2.gif" alt="" loading="lazy"></div>
+      </div>
+      <div>
+        <div class="meta"><span class="who">JoyLoop</span><span>Founder and developer</span><span>2025–now</span></div>
+        <h3>An AI greeting card people actually want to send</h3>
+        <p class="desc">I designed, built and launched JoyLoop on my own with AI dev tools and APIs. It turns any moment into an animated card with custom art, GIFs, music and a personal message. Doing both jobs taught me what AI products need from marketing.</p>
+        <ul class="did">
+          <li>Built the full product solo with AI coding tools and image, music and voice APIs</li>
+          <li>Designed a remixable card format made for sharing</li>
+          <li>Grew it through organic search and word of mouth, no paid spend</li>
+        </ul>
+        <div class="results">
+          <div><b data-count="400" data-suffix="+">400+</b><span>users</span></div>
+          <div><b>7k+</b><span>organic site visitors</span></div>
+          <div><b>3k+</b><span>cards and GIFs made</span></div>
+        </div>
+        <div class="links"><a class="btn small" href="https://joyloop.ai/" target="_blank" rel="noopener">Try JoyLoop ↗</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="lab" id="lab">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">AI lab</p>
+        <h2>Ideas I shipped in a sprint.</h2>
+      </div>
+      <p class="lede" style="color:var(--ink)">I build working prototypes with Claude Code, Lovable and Replit to test ideas fast. Each one has a live app, a brand and a launch page, made end to end by me.</p>
+    </div>
+    <div class="grid2">
+      <article class="tile">
+        <div class="device"><div class="screen"><video muted loop playsinline preload="none" poster="assets/video/droppin-poster.jpg" data-src="assets/video/droppin.mp4" aria-label="Screen recording of Droppin"></video></div><div class="deck"></div></div>
+        <span class="yr">Consumer · events</span>
+        <h3>Droppin</h3>
+        <p>Paste any event link from Eventbrite, Luma or Partiful. AI pulls out the details and adds it to your calendar in one tap.</p>
+        <a class="go" href="https://droppin.lovable.app" target="_blank" rel="noopener">Open the app ↗</a>
+      </article>
+      <article class="tile">
+        <div class="device"><div class="screen"><video muted loop playsinline preload="none" poster="assets/video/tanagram-poster.jpg" data-src="assets/video/tanagram.mp4" aria-label="Screen recording of Tanagram"></video></div><div class="deck"></div></div>
+        <span class="yr">Developer tools · AI coding</span>
+        <h3>Tanagram</h3>
+        <p>Turns real bugfixes into policies that stop AI coding agents from repeating the same mistakes. Product and marketing site shipped in one sprint.</p>
+        <a class="go" href="https://bugfix-policies-for-agents.lovable.app" target="_blank" rel="noopener">Open the app ↗</a>
+      </article>
+      <article class="tile">
+        <div class="device"><div class="screen"><video muted loop playsinline preload="none" poster="assets/video/yardwise-poster.jpg" data-src="assets/video/yardwise.mp4" aria-label="Screen recording of YardWise"></video></div><div class="deck"></div></div>
+        <span class="yr">Climate · home</span>
+        <h3>YardWise</h3>
+        <p>Upload a photo of your yard and get a water-wise landscape plan, a shopping list and $2,000+ in Austin rebates, all in one flow.</p>
+        <a class="go" href="https://yardbud.lovable.app" target="_blank" rel="noopener">Open the app ↗</a>
+      </article>
+      <article class="tile">
+        <div class="device"><div class="screen"><video muted loop playsinline preload="none" poster="assets/video/ad-canvas-poster.jpg" data-src="assets/video/ad-canvas.mp4" aria-label="Screen recording of Ad Review Canvas"></video></div><div class="deck"></div></div>
+        <span class="yr">Marketing ops · internal tool</span>
+        <h3>Ad Review Canvas</h3>
+        <p>Compares ad copy variants against visual styles in realistic LinkedIn mocks, so clients approve creative in minutes instead of days.</p>
+        <a class="go" href="https://creative-ad-deck.lovable.app" target="_blank" rel="noopener">Open the app ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ventures">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Ventures</p>
+        <h2>Companies I started from zero.</h2>
+      </div>
+      <p class="lede">Founding taught me to ship with no budget, sell before the product is finished, and listen hard to customers. I bring all three to every team I join.</p>
+    </div>
+    <div class="grid3">
+      <article class="tile">
+        <div class="device"><div class="screen"><video muted loop playsinline preload="none" poster="assets/video/invited-poster.jpg" data-src="assets/video/invited.mp4" aria-label="Screen recording of Invited"></video></div><div class="deck"></div></div>
+        <span class="yr">Co-founder and CEO · 2024–2025</span>
+        <h3>Invited</h3>
+        <p>Small-group matchmaking that became a resident retention product for multifamily buildings.</p>
+        <p class="win">800+ users · 150+ repeat attendees · 10+ events a week</p>
+        <a class="go" href="https://www.youtube.com/watch?v=A_ecLc4B-3A" target="_blank" rel="noopener">Watch the video ↗</a>
+      </article>
+      <article class="tile">
+        <div class="device"><div class="screen"><video muted loop playsinline preload="none" poster="assets/video/refrosh-poster.jpg" data-src="assets/video/refrosh.mp4" aria-label="Screen recording of Refrosh"></video></div><div class="deck"></div></div>
+        <span class="yr">Founder and CEO · 2021–2022</span>
+        <h3>Refrosh</h3>
+        <p>Small-group matchmaking for real-life friendship, built and launched solo on no-code tools with venue partners.</p>
+        <p class="win">250+ paying customers · $10K seed fund winner</p>
+      </article>
+      <article class="tile">
+        <div class="device"><div class="screen"><video muted loop playsinline preload="none" poster="assets/video/joey-ro-poster.jpg" data-src="assets/video/joey-ro.mp4" aria-label="Screen recording of Joey Ro"></video></div><div class="deck"></div></div>
+        <span class="yr">Founder</span>
+        <h3>Joey Ro</h3>
+        <p>Mix-and-match dog collars and leashes with matching accessories for their people, launched with crowdfunding and a live event.</p>
+        <p class="win">$3K presales · Google Austin Fast Start finalist · Austin Woman Magazine</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Experience</p>
+        <h2>From agency floor to founder.</h2>
+      </div>
+      <p class="lede">I started in digital production at New York and Austin agencies, moved in-house to lead marketing at a Fortune 500 and three YC-backed startups, and have founded four companies along the way.</p>
+    </div>
+    <div class="xp">
+      <ul class="roles">
+        <li><span class="when">2025 – now</span><div><b>Founder and Developer</b>, <span class="co">JoyLoop</span><p>AI-powered personalized animated greetings, built solo.</p></div></li>
+        <li><span class="when">2024 – 2025</span><div><b>Co-founder and CEO</b>, <span class="co">Invited</span><p>Small-group matchmaking for resident retention.</p></div></li>
+        <li><span class="when">2023 – 2024</span><div><b>GTM Consultant</b>, <span class="co">Povio (YC)</span><p>Positioning, messaging and web for a 600-person software studio.</p></div></li>
+        <li><span class="when">2022 – 2023</span><div><b>Director of Marketing</b>, promoted from Sr. PMM, <span class="co">Triplebyte (YC)</span><p>Series B HR-tech SaaS, acquired by Karat.</p></div></li>
+        <li><span class="when">2021 – 2022</span><div><b>Founder and CEO</b>, <span class="co">Refrosh</span><p>IRL friendship matchmaking, launched solo on no-code tools.</p></div></li>
+        <li><span class="when">2018 – 2020</span><div><b>Marketing and Business Development Lead</b>, <span class="co">amazee.io</span><p>Open-source developer platform, acquired by Mirantis.</p></div></li>
+        <li><span class="when">2016 – 2018</span><div><b>Senior Digital Marketing Manager</b>, <span class="co">Flex</span><p>Digital strategy for a $30B global manufacturer.</p></div></li>
+        <li><span class="when">2014 – 2020</span><div><b>Austin Chapter Founder</b>, <span class="co">SheSays ATX</span><p>Grew to 1K+ members and 50+ events, sponsored by Google, Box and WeWork.</p></div></li>
+        <li><span class="when">2012 – 2016</span><div><b>Digital Project Manager</b>, <span class="co">Bakery, HCB Health and others</span><p>$1M web budgets for Dell, Budweiser, Alcon, Johns Hopkins and Union Pacific.</p></div></li>
+        <li><span class="when">2008 – 2010</span><div><b>Associate Digital Producer</b>, <span class="co">Digital Pulp</span><p>Web and ad campaigns for Continental Airlines, L'Oréal Redken and NRDC.</p></div></li>
+      </ul>
+      <aside class="side">
+        <div>
+          <h3>Awards</h3>
+          <ul class="awards">
+            <li><span>2022</span>#1 Product of the Day, Product Hunt · Triplebyte Magnet</li>
+            <li><span>2021</span>Lori Hermelin Bush Seed Fund winner · Refrosh</li>
+            <li><span>2017</span>Webby Honoree · flex.com</li>
+            <li><span>2009</span>Webby Honoree · redken.com</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Toolkit</h3>
+          <div class="chips">
+            <span>Claude Code</span><span>Lovable</span><span>Replit</span><span>OpenAI</span><span>Gemini</span><span>ElevenLabs</span><span>Clay</span><span>Mutiny</span><span>HubSpot</span><span>Salesforce</span><span>Customer.io</span><span>GA4</span><span>Semrush</span><span>Optimizely</span><span>Webflow</span><span>Figma</span>
+          </div>
+        </div>
+        <div>
+          <h3>Education</h3>
+          <p>Temple University, Honors BA in Advertising, magna cum laude. Pragmatic Institute, Product Marketing Foundations.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="praise" id="praise">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Praise</p>
+        <h2>From the people I've worked with.</h2>
+      </div>
+      <p class="lede">18 recommendations from managers, sales leaders, designers and peers, from my agency days to Triplebyte.</p>
+    </div>
+    <div class="feat">
+      <figure class="fq"><blockquote>“Nicole&#x27;s rare combination of skills in research, messaging, and campaign execution yield real business results.”</blockquote><figcaption class="who-row"><img src="assets/people/ellis-briery.jpg" alt="" loading="lazy" width="46" height="46"><span><b>Ellis Briery</b>Talent Acquisition, Triplebyte</span></figcaption></figure>
+      <figure class="fq"><blockquote>“Nicole&#x27;s outstanding leadership was exemplified in the successful launch of our new product, Magnet.”</blockquote><figcaption class="who-row"><img src="assets/people/ventsi-tsachev.jpg" alt="" loading="lazy" width="46" height="46"><span><b>Ventsi Tsachev</b>Head of Sales, Triplebyte</span></figcaption></figure>
+      <figure class="fq"><blockquote>“Nicole owned an incredibly wide scope of marketing at Triplebyte across content, SEM, product marketing, and user research.”</blockquote><figcaption class="who-row"><img src="assets/people/shriram-apte.jpg" alt="" loading="lazy" width="46" height="46"><span><b>Shriram Apte</b>Her manager, Triplebyte</span></figcaption></figure>
+      <figure class="fq"><blockquote>“She&#x27;s great at connecting disparate ideas and people in ways that no one else would have imagined—a strategist dressed in producer&#x27;s clothing.”</blockquote><figcaption class="who-row"><img src="assets/people/christopher-dewan.jpg" alt="" loading="lazy" width="46" height="46"><span><b>Christopher DeWan</b>Senior Interactive Producer, Digital Pulp</span></figcaption></figure>
+    </div>
+    <div class="wall">
+      <figure class="rq"><p>I had the pleasure of working with Nicole as the Marketing Director at Triplebyte. In this role, Nicole made significant contributions to our product and go-to-market efforts.</p><details><summary>Read more</summary>Nicole launched the marketing strategy for Triplebyte&#x27;s revenue generating product. She conducted customer research to deeply understand our users and translate their needs into compelling product narratives. Nicole worked closely with our product and sales teams to craft messaging and sales assets. She delivered product marketing campaigns that exceeded our key performance indicators and led to increased customer adoption. Beyond her marketing impact, Nicole was a joy to work with. She fostered positive relationships, connecting cross-functionally to gather input and see initiatives through. Nicole&#x27;s friendly, collaborative nature and ability to listen made her a great team member. I highly and enthusiastically recommend Nicole, especially for scaling growth. She would be an extremely valuable addition to any organization fortunate enough to recruit her. Nicole&#x27;s rare combination of skills in research, messaging, and campaign execution yield real business results.</details><figcaption class="who-row"><img src="assets/people/ellis-briery.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Ellis Briery</b>Talent Acquisition<span class="rel">Triplebyte · 2023 · worked together on the same team</span></span></figcaption></figure>
+      <figure class="rq"><p>I had the immense pleasure of working alongside Nicole at Triplebyte, where she led the marketing department with remarkable skill and dedication.</p><details><summary>Read more</summary>As Head of Sales, I witnessed firsthand how her strategic mindset, deep understanding of the market, and ability to foster strong cross-functional relationships positively impacted our sales performance. Nicole&#x27;s outstanding leadership was exemplified in the successful launch of our new product, Magnet. She played a pivotal role in driving product marketing and sales enablement initiatives that not only clarified the sales pitch but also significantly improved the performance of our outbound and inbound channels. Her keen attention to detail and ability to grasp the intricacies of our business ensured that the entire sales team had the resources and knowledge necessary to excel in their roles. In addition to her product marketing prowess, Nicole was instrumental in launching a new website for Triplebyte, which not only elevated our brand&#x27;s online presence but also streamlined the user experience. Furthermore, she built a comprehensive case study library that proved invaluable in enhancing our sales win rates and the quality of Marketing Qualified Leads (MQLs). This accomplishment speaks to her dedication to the company&#x27;s growth and her unwavering commitment to supporting her colleagues. One of the aspects I appreciated most about working with Nicole was her remarkable ability to collaborate effectively with cross-functional teams. She consistently demonstrated a deep understanding of our sales and sales development team&#x27;s needs, working closely with us to provide the necessary tools and resources to help us thrive. This seamless collaboration greatly contributed to the overall success of Triplebyte. Nicole&#x27;s combination of strategic thinking, marketing expertise, and collaborative spirit make her an invaluable asset to any organization. I wholeheartedly recommend Nicole for any marketing leadership role and am confident that she will continue to drive outstanding results in her future endeavors.</details><figcaption class="who-row"><img src="assets/people/ventsi-tsachev.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Ventsi Tsachev</b>Building the information layer for AI @ Exa<span class="rel">Triplebyte · 2023 · worked together but on different teams</span></span></figcaption></figure>
+      <figure class="rq"><p>Nicole owned an incredibly wide scope of marketing at Triplebyte across content, SEM, product marketing, and user research.</p><details><summary>Read more</summary>While owning this incredibly broad scope, Nicole consistently executed effectively on projects and delivered results. Nicole was particularly strong when it came to understanding our customers&#x27; needs, identifying the elements of our product to emphasize in content, and working across sales and product teams. While owning this broad scope, and excelling in each function, Nicole was generally a great and positive person to work with and would strongly recommend her for any marketing role!</details><figcaption class="who-row"><img src="assets/people/shriram-apte.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Shriram Apte</b>Building something new<span class="rel">Triplebyte · 2023 · managed Nicole</span></span></figcaption></figure>
+      <figure class="rq"><p>I had the pleasure of working with Nicole at Triplebyte, where she played a critical role in overseeing our marketing efforts as well as excelling in her official role as a Product Marketer.</p><details><summary>Read more</summary>Nicole&#x27;s contributions to Triplebyte&#x27;s marketing team were nothing short of outstanding - not only did she nail our messaging and positioning in the market, but she also led our entire marketing effort, including social media and paid ads. Nicole is a gifted marketer and product developer, with a keen understanding of how to connect with customers and build products that truly meet their needs. She brings a wealth of experience and expertise to any team she works with, and her leadership skills and attention to detail make her a true asset. Overall, I wholeheartedly recommend Nicole for any marketing or product development role. She&#x27;s a natural collaborator, a tireless worker, and a true rockstar. It was an absolute pleasure working with her at Triplebyte and I&#x27;m confident she&#x27;ll continue to excel wherever her career takes her.</details><figcaption class="who-row"><img src="assets/people/gayla-galuszka.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Gayla Galuszka</b>Connect Partnerships @ Meter<span class="rel">Triplebyte · 2023 · worked together on the same team</span></span></figcaption></figure>
+      <figure class="rq"><p>I had the privilege to manage Nicole and was always impressed with her ability to anticipate business needs and create the right action plans to deliver great results.</p><details><summary>Read more</summary>She acts as a business owner and looks for every opportunity to improve the customer experience. She has great ability to connect with other teams, external partners and align all of them for the same goal. She also demonstrates an excellent project management rigor to complete projects on time, on budget and with high quality. Nicole will be a great addition to any business in need of creativity, hard work, partnership building and customers&#x27; growth.</details><figcaption class="who-row"><img src="assets/people/thiago-james-pizzirani.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Thiago James Pizzirani</b>Business and AI Faculty @ BYU-Idaho | ex-Microsoft, Indeed<span class="rel">2017 · managed Nicole</span></span></figcaption></figure>
+      <figure class="rq"><p>Nicole lights up a room. She is smart and charismatic. An asset to any team. Nicole has a flair for effective communication across any platform. She is assertive and possesses a lot of leadership skills.</p><figcaption class="who-row"><img src="assets/people/jessica-lowry.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Jessica Lowry</b>Human-Centered AI Enablement | Innovation &amp; Transformation<span class="rel">2015 · managed Nicole</span></span></figcaption></figure>
+      <figure class="rq"><p>I had the privilege of working with Nicole at EnviroMedia and HCB Health. Her approach to project management is people-focused and thoughtful.</p><details><summary>Read more</summary>She&#x27;s calm in dynamic environments and situations, while keeping all involved parties on task. I highly recommend Nicole.</details><figcaption class="who-row"><img src="assets/people/christine-moline.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Christine Moline</b>Real Estate Consultant<span class="rel">EnviroMedia · 2015 · worked together on the same team</span></span></figcaption></figure>
+      <figure class="rq"><p>Nicole was a joy to work with on the Mason Zimbler team. She proactively brought innovative solutions forward and collaboratively approached tasks.</p><details><summary>Read more</summary>Nicole is a self starter who sets realistic expectations for team members toward efficient delivery of quality creative assets that are on strategy and budget.</details><figcaption class="who-row"><img src="assets/people/james-braglia.jpg" alt="" loading="lazy" width="40" height="40"><span><b>James Braglia</b>Creative Producer | Integrated Marketing &amp; Production Ops<span class="rel">Mason Zimbler · 2015 · worked together on the same team</span></span></figcaption></figure>
+      <figure class="rq"><p>I worked with Nicole in a fast-paced, stressful environment. Regardless of the pressure to meet moving deadlines, her ability to remain calm and always have a smile, made it an ongoing pleasure to work with her.</p><details><summary>Read more</summary>I see Nicole succeeding in any role she tackles, and any company would be lucky to have her on their team.</details><figcaption class="who-row"><img src="assets/people/keri-farrington.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Keri Farrington</b>Print Production / Project Manager<span class="rel">2015 · worked together on the same team</span></span></figcaption></figure>
+      <figure class="rq"><p>I had the great fortune of working with Nicole as our Project Manager at Bakery.</p><details><summary>Read more</summary>As our PM, Nicole was the central point for every thing that ran through the company from scoping and scheduling, client and vendor interfacing, quality control, and final deliverables. She is proactive and led our teams in the right direction whenever questions arose. Additionally, Nicole served as a huge asset to our creative team by taking active parts in the creative brainstorming process while also flexing her excellent writing skills. On a side note: You should really let her bring Alfie - her doggie - to work. He&#x27;s been proven to increase company culture and positive, fuzzy feelings by 83%.</details><figcaption class="who-row"><img src="assets/people/carlos-menchaca.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Carlos Menchaca</b>Brand Designer + Art Director — fmr. GitHub, Charles Schwab, Fitbod<span class="rel">Bakery · 2015 · worked together on the same team</span></span></figcaption></figure>
+      <figure class="rq"><p>Nicole was an absolute pleasure to work with on a daily basis. She not only motivated the group to manage project but took the initiative when aspects of the project needed extra assistance.</p><details><summary>Read more</summary>She is great at time management by juggling a full time job and running the SheSays division in Austin, TX. She has multiple angles of approach with clients by using her creative and art background.</details><figcaption class="who-row"><img src="assets/people/dani-schmidt.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Dani Schmidt</b>Production Manager at Bond, Brand Engagement<span class="rel">SheSays Austin · 2015 · Nicole was senior to Dani but didn&#x27;t manage Dani directly</span></span></figcaption></figure>
+      <figure class="rq"><p>Nicole was an exceptional Interactive Producer at Bakery. She was a true team player who helped every team member achieve project goals efficiently and worked tirelessly to exceed clients&#x27; expectations.</p><details><summary>Read more</summary>I enjoyed working with her on various projects and getting to know her better. She is professional, knowledgable and passionate in her field. Having worked with her has been a pleasure and I hope our paths cross on more projects in the future.</details><figcaption class="who-row"><img src="assets/people/sepehr-olfatmanesh.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Sepehr Olfatmanesh</b>Global Consumer GTM Campaign Manager at AMD<span class="rel">Bakery · 2015 · worked together on the same team</span></span></figcaption></figure>
+      <figure class="rq"><p>Nicole founded SheSays Austin and has done an awesome job building the organization from the ground up and recruiting a loyal following of attendees.</p><details><summary>Read more</summary>She really pays attention to what attendees want out of the events and finds awesome women in the Austin community to speak at them. She truly is a &#x27;Power Organizer&#x27; — all her events I&#x27;ve been to have gone off without a hitch... every detail is planned and covered!</details><figcaption class="who-row"><img src="assets/people/shaina-forman.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Shaina Forman</b>Independent Customer Insights &amp; Strategy Director<span class="rel">SheSays Austin · 2015 · worked together but at different companies</span></span></figcaption></figure>
+      <figure class="rq"><p>Nicole is a project manager you can trust. She understands a diverse range of tactics and can handle multiple projects simultaneously.</p><details><summary>Read more</summary>She is the organizer of SheSays Austin, a great group of creative women, where her leadership skills have been put to use.</details><figcaption class="who-row"><img src="assets/people/heather-miller.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Heather Miller</b>General Manager at Texas Monthly<span class="rel">SheSays Austin · 2015 · Heather was senior to Nicole but didn&#x27;t manage Nicole directly</span></span></figcaption></figure>
+      <figure class="rq"><p>Nicole and I worked together when I was a senior interactive producer at Digital Pulp.</p><details><summary>Read more</summary>While I was there, she was instrumental in projects for L&#x27;Oréal, Bausch and Lomb, and a high-prestige job with The Advertising Club of New York, among others. She was always great to have on the team: professional, enthusiastic, and a joy to be around. Where Nicole really thrives, and where she seems happiest, are on jobs where she&#x27;s allowed to bring her creative energies to bear: she&#x27;s an energetic, innovative thinker and she&#x27;s great at connecting disparate ideas and people in ways that no one else would have imagined—a strategist dressed in producer&#x27;s clothing. Whether she&#x27;s brainstorming with a young Internet startup or volunteering for an NGO in her free time, Nicole brings the same passion to her work: she cares deeply, and that care is contagious. I&#x27;m excited to see what she does next.</details><figcaption class="who-row"><img src="assets/people/christopher-dewan.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Christopher DeWan</b>Ideamaker<span class="rel">Digital Pulp · 2015 · Christopher was senior to Nicole but didn&#x27;t manage Nicole directly</span></span></figcaption></figure>
+      <figure class="rq"><p>Nicole is a skillful coordinator. She is very organized and has lined up great monthly events with awesome speakers and venue locations. She is very welcoming and engaging with the group&#x27;s members.</p><figcaption class="who-row"><img src="assets/people/nicole-umphress.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Nicole Umphress</b>Program Management &amp; Operations<span class="rel">SheSays Austin · 2015 · worked together at different companies</span></span></figcaption></figure>
+      <figure class="rq"><p>Nicole is an expert. As Project Manager on our team, she led each new project with accuracy, professionalism and dedication.</p><details><summary>Read more</summary>Her ability to step-up and even take over projects mid-way through, showed her ambition and passion for her work. She asks the right questions, listens to every detail and delivers on critical deadlines. Nicole also has an excellent sense of humor and poise. Having worked with her over the last year has been a true delight and I hope our paths cross on more projects in the future.</details><figcaption class="who-row"><img src="assets/people/irisa-davis.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Irisa Davis</b>Director, Communications at Superior HealthPlan<span class="rel">2014 · worked together on the same team</span></span></figcaption></figure>
+      <figure class="rq"><p>Through Nicole&#x27;s hard work as a PM, we were able to successfully complete a massive, 300+ page cancer education website, numerous apps, iBooks, digital advertising and more.</p><details><summary>Read more</summary>I appreciated her ability to assess risk, ask questions and anticipate the &#x27;fork in the road&#x27;. Nicole would make a great addition to any PM group.</details><figcaption class="who-row"><img src="assets/people/joe-doyle.jpg" alt="" loading="lazy" width="40" height="40"><span><b>Joe Doyle</b>Omnichannel Healthcare Strategy Leader | PharmaVoice 100<span class="rel">2014 · managed Nicole</span></span></figcaption></figure>
+    </div>
+    <p class="li-note">All recommendations come from <a href="https://www.linkedin.com/in/nicoledeangelis/" target="_blank" rel="noopener">my LinkedIn profile</a>.</p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="photo">
+      <img src="assets/img/nicole-and-dog.jpg" alt="Nicole sitting in the grass with her white doodle, who is wearing sunglasses" loading="lazy">
+      <p class="note">Modeling matching Joey Ro accessories with my favorite coworker.</p>
+    </div>
+    <div class="about-body">
+      <p class="eyebrow">About</p>
+      <h2>Equal parts strategist and builder.</h2>
+      <p>I've spent my career where a good product meets a market that doesn't understand it yet. I've done that as a first marketing hire, as a director at a YC company, as the digital lead on a Fortune 500 rebrand, and as a founder four times over.</p>
+      <p>The common thread is clarity. I find the one thing a buyer needs to believe, then build everything around it: the message, the site, the launch and the pipeline. These days I also build the product, using AI tools that let one person ship what used to take a team.</p>
+      <h3>How I work</h3>
+      <ul class="did">
+        <li>Lead with outcomes, and measure them.</li>
+        <li>Ship in days, then improve with real data.</li>
+        <li>Work closely with sales and product, because they hear the customer first.</li>
+        <li>Make it human. Good marketing makes people feel something.</li>
+      </ul>
+      <h3>Outside work</h3>
+      <p>I'm a 200-hour certified yoga teacher, a photographer and a visual artist. I'm based in Austin and work remotely.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cbox">
+      <div>
+        <h2>Let's make something people <span class="pill">feel</span>.</h2>
+        <p>I'm looking for founding marketer, full-stack marketing, product marketing and growth roles, as a hands-on IC or as a leader. I also take on select advisory projects.</p>
+      </div>
+      <div>
+        <div class="emailrow">
+          <code id="email">nicole.deangelis@gmail.com</code>
+          <button class="btn solid small" id="copy" type="button">Copy email</button>
+        </div>
+        <div class="clinks">
+          <a class="btn small" href="https://www.linkedin.com/in/nicoledeangelis/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn small" href="Nicole-DeAngelis-Resume.pdf" download="Nicole-DeAngelis-Resume.pdf" type="application/pdf">Download résumé</a>
+          <a class="btn small" href="https://studio.joyloop.ai/" target="_blank" rel="noopener">JoyLoop Studio ↗</a>
+        </div>
+        <p class="reply">Based in Austin · I reply within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Nicole DeAngelis</span><a href="#top">Back to top ↑</a></div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function countUp(el){
+    if(reduce)return;
+    var end=+el.dataset.count,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',t0=null,dur=1100;
+    function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+      el.textContent=pre+Math.round(end*e)+suf;if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  document.querySelectorAll('.stack [data-count]').forEach(countUp);
+
+  var videos=[].slice.call(document.querySelectorAll('video[data-src]'));
+  if(reduce){videos.forEach(function(v){v.controls=true;v.src=v.dataset.src;});}
+  if('IntersectionObserver' in window){
+    var vio=new IntersectionObserver(function(es){es.forEach(function(e){
+      var v=e.target;
+      if(e.isIntersecting){
+        if(!v.src){v.src=v.dataset.src;}
+        if(!reduce){var p=v.play();if(p&&p.catch)p.catch(function(){v.controls=true;});}
+      }else if(!v.paused){v.pause();}
+    })},{threshold:.35});
+    videos.forEach(function(v){vio.observe(v)});
+
+    var sio=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('inview');
+        e.target.querySelectorAll('[data-count]').forEach(countUp);sio.unobserve(e.target);}
+    })},{threshold:.4});
+    document.querySelectorAll('.case').forEach(function(c){sio.observe(c)});
+  }else{videos.forEach(function(v){v.src=v.dataset.src;v.controls=true;});}
+
+  // Inside the claude.ai preview, plain download links are blocked, so hand the PDF over through its downloads API.
+  // On the real site window.claude is absent and the links download normally.
+  if(window.claude&&window.claude.use){
+    document.querySelectorAll('a[download]').forEach(function(a){
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var label=a.textContent;
+        window.claude.use('downloads').then(function(dl){
+          if(!dl){a.textContent='Download on the live site';return;}
+          return fetch(a.getAttribute('href')).then(function(r){return r.blob()}).then(function(b){
+            return dl.save({filename:a.getAttribute('download'),data:b});
+          }).then(function(){a.textContent='Saved';setTimeout(function(){a.textContent=label},2000)});
+        }).catch(function(e){if(!e||e.code!=='declined'){a.textContent='Download unavailable here';setTimeout(function(){a.textContent=label},2500)}});
+      });
+    });
+  }
+
+  var copy=document.getElementById('copy'),email=document.getElementById('email');
+  copy.addEventListener('click',function(){
+    function done(){copy.textContent='Copied';setTimeout(function(){copy.textContent='Copy email'},1800)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(email);var s=getSelection();s.removeAllRanges();s.addRange(r);copy.textContent='Selected, press ⌘C'}
+    try{navigator.clipboard.writeText(email.textContent).then(done,fallback)}catch(e){fallback()}
+  });
+})();
+</script>
+</body>
+</html>
